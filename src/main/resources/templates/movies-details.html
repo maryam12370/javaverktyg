@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+</head>
+<body>
+
+<h1 th:text="${movie.title}">Movie title</h1>
+
+<p>
+    Genre:
+    <span th:text="${movie.genre}">Genre</span>
+</p>
+
+<p>
+    Release year:
+    <span th:text="${movie.releaseYear}">2020</span>
+</p>
+
+<p>
+    Rating:
+    <span th:text="${movie.rating}">8.0</span>
+</p>
+
+<a th:href="@{/movies}">Back to movies</a>
+
+</body>
+</html>
