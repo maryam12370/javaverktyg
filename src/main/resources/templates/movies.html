@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+</head>
+<body>
+
+<h1>Movies</h1>
+
+<h2>Add a new movie</h2>
+
+<form action="/movies" method="post">
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+    <br><br>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" required>
+    <br><br>
+
+    <label for="releaseYear">Release Year:</label>
+    <input type="number" id="releaseYear" name="releaseYear" required>
+    <br><br>
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" step="0.1" min="0" max="10" required>
+    <br><br>
+
+    <button type="submit">Add Movie</button>
+
+</form>
+
+<hr>
+
+<h2>Movies</h2>
+
+<p th:if="${movies.isEmpty()}">No movies found.</p>
+
+<ul>
+    <li th:each="movie : ${movies}">
+
+        <a th:href="@{/movies/{id}(id=${movie.id})}"
+           th:text="${movie.title}">
+            Movie title
+        </a>
+
+        |
+
+        <a th:href="@{/movies/{id}/edit(id=${movie.id})}">
+            Edit
+        </a>
+
+    </li>
+</ul>
+
+</body>
+</html>
